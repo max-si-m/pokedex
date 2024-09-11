@@ -1,5 +1,9 @@
 package main
 
+import (
+	"github.com/max-si-m/pokedex/repl"
+)
+
 func main(){
-  startRepl()
+    repl.Start()
 }

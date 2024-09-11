@@ -2,7 +2,7 @@ package cmd
 
 import "os"
 
-func commandExit() error {
+func CommandExit() error {
 	os.Exit(0)
 	return nil
 }
