@@ -5,10 +5,17 @@ import (
 	"fmt"
 	"os"
 	"strings"
+
+	"github.com/max-si-m/pokedex/api"
 )
 
 func GetCommands() map[string]CliCommand {
 	return map[string]CliCommand{
+		"map": {
+			Name:        "map",
+			Description: "Displays locations",
+			Callback:    commandMap,
+		},
 		"help": {
 			Name:        "help",
 			Description: "Displays a help message",
@@ -76,5 +83,10 @@ func commandHelp() error {
 		fmt.Printf("%s: %s\n", cmd.Name, cmd.Description)
 	}
 	fmt.Println()
+	return nil
+}
+
+func commandMap() error {
+	api.GetLocations()
 	return nil
 }
