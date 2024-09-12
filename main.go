@@ -1,9 +1,17 @@
 package main
 
 import (
+	"time"
+
+	"github.com/max-si-m/pokedex/internal/pokedex_api"
 	"github.com/max-si-m/pokedex/repl"
 )
 
 func main(){
-    repl.Start()
+	pokeClient := pokedex_api.NewClient(5 * time.Second)
+	cfg := &repl.Config{
+		pokeapiClient: &pokeClient,
+	}
+
+	repl.Start(cfg)
 }
