@@ -10,7 +10,7 @@ import (
 func main(){
 	pokeClient := pokedex_api.NewClient(5 * time.Second)
 	cfg := &repl.Config{
-		pokeapiClient: &pokeClient,
+		PokeApiClient: &pokeClient,
 	}
 
 	repl.Start(cfg)

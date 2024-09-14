@@ -17,7 +17,7 @@ type CliCommand struct {
 }
 
 type Config struct {
-	pokeapiClient *pokedex_api.Client
+	PokeApiClient *pokedex_api.Client
 	nextLocationsURL *string
 	prevLocationsURL *string
 }
@@ -99,7 +99,7 @@ func commandHelp(cfg *Config) error {
 }
 
 func commandMap(cfg *Config) error {
-	locationsResp, err := cfg.pokeapiClient.ListLocations(cfg.nextLocationsURL)
+	locationsResp, err := cfg.PokeApiClient.ListLocations(cfg.nextLocationsURL)
 	if err != nil {
 		return err
 	}
@@ -118,7 +118,7 @@ func commandMapB(cfg *Config) error {
 		return errors.New("you're on the first page")
 	}
 
-	locationResp, err := cfg.pokeapiClient.ListLocations(cfg.prevLocationsURL)
+	locationResp, err := cfg.PokeApiClient.ListLocations(cfg.prevLocationsURL)
 	if err != nil {
 		return err
 	}
